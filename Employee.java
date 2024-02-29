@@ -1,47 +1,64 @@
-package week2;
-public class Employee {
-	String empName;
-	int empNo;
-	byte expYrs;
-	double basicSalary;
-	double bonus;
-	double netSalary;
-	void setEmployee(String Name,int no,String gender,String sex,byte ex,double basicsalary)
-	{
-		empName=Name;
-	    empNo=no;
-	    gender=sex;
-	    expYrs=ex;
-	    basicSalary=basicsalary;
-	}
-	void getEmployeeDetails()
-	{
-	String gender = null;
-	if(gender=="female")
-	{
-		bonus=basicSalary*10/108;
-		netSalary=basicSalary+bonus;
-	}
-	else
-		netSalary=basicSalary;
-	    System.out.println(empName+"It"+empNo+"\t"+gender+"\t"+expYrs+"It"+basicSalary+"\t"+bonus+"\t"+netSalary+"\n");
-	}
-	public void setEmployee(String string, int i, String string2, byte b, double d) {
-		// TODO Auto-generated method stub
-		
+package week3;
+class Employee{
+	class Employee1{
+		String empName;
+		int empNo;
+		String empDesig;
+		byte expYrs;
+		double basicSalary;
+		double netSalary;
+		double grossSalary;
+		double dearnessAllowance;
+		double HRA;
+		double PA;
+		double IT;
+		Employee1()
+		{
+			empName=null;
+			empNo=0;
+			empDesig=null;
+			expYrs=0;
+			basicSalary=0.0d;
+		}
+		Employee1(String name,int no,String des,byte ex,double basicsalary)
+		{
+			empName=name;
+			empNo=no;
+			empDesig=des;
+			expYrs=ex;
+		    basicSalary=basicsalary;
+		}
+		Employee1(Employee1 obj1,Employee1 obj2)
+		{
+			empName=obj1.empName;
+			empNo=obj2.empNo;
+			empDesig=obj1.empDesig;
+			expYrs=obj2.expYrs;
+			basicSalary=obj2.basicSalary;
+		}
+		void getEmployee1()
+		{
+			dearnessAllowance=basicSalary*0.40;
+			HRA=basicSalary*0.25;
+			PA=basicSalary*10;
+			grossSalary=basicSalary+dearnessAllowance+HRA+PA;
+			
+			IT=basicSalary*10;
+			netSalary=grossSalary-IT;
+			
+			System.out.println(empName+"\t"+empNo+"\t"+empDesig+"\t"+expYrs+"\t\t"+basicSalary+"\t\t"+grossSalary+"\t\t"+netSalary);
+		}
+			public class grossSalary{
+		public static void main(String[] args){
+			System.out.println("empName\tempNo\tempDesig\texpYrs\tbasicSalary\tgrossSalary\tnetSalary");
+			Employee1 rakesh= new Employee1();
+			rakesh.getEmployee1();
+			Employee1 rahul=new Employee1("Rahul",100,"PM",(byte)10,10000.0d);
+			rahul.getEmployee1();
+			Employee1 ramya=new Employee1(rakesh,rahul);
+			ramya.getEmployee1();
+		}
+			
 	}
 }
-class EmployeeDetails
-{
-	public static void main(String args[])
-	{
-	Employee Rahul=new Employee();
-	Rahul.setEmployee( "Rashmi",128966,"female",null, (byte)20,100000.0d);
-	System.out.println("empNane\tempNo\tgender\texpYrs\tbasicSalary\tbonus\tnetSalary\n");
-	Rahul.getEmployeeDetails();
-	Employee Rakesh=new Employee();
-	Rakesh.getEmployeeDetails();
-	Employee madhu=new Employee();
-	madhu.setEmployee("Madhu",7851161,"female", (byte)25,150800.0d);
-    }
 }
