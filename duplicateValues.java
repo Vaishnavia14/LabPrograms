@@ -1,4 +1,3 @@
-package week5;
 import java.util.Scanner;
 public class duplicateValues {
 	    public static void main(String[] args) {
