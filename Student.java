@@ -1,31 +1,51 @@
-package week2;
+package week5;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 public class Student {
-	String StudName,dept;
-	int Rollno;
-	static String clg = "GPT";
-	int percentage;
-	void setStudent(String Name, int rollno, String cdept,int per)
-	{
-	StudName=Name;
-	Rollno = rollno;
-	dept=cdept;
-	percentage=per;
+	package week_7;
+
+		String name, course; int rno; float ial, ia2, ia3, avg;
+		Student ()
+		{
+			try{
+				InputStreamReader isr=new InputStreamReader(System.in);
+				BufferedReader br = new BufferedReader (isr);
+				System.out.println("Enter Roll Number of Student.");
+				rno=Integer.parseInt(br.readLine());
+				System.out.println("Enter Name of Student.");
+				name=br.readLine();
+				System.out.println("Enter Course of Student.");
+				course=br.readLine();
+				System.out.println("Enter First CIE score of the Student.");
+				ial=Float.parseFloat(br.readLine());
+				System.out.println("Enter Second CIE score of the Student.");
+				ia2=Float.parseFloat(br.readLine());
+				System.out.println("Enter Third CIE score of the Student.");
+				ia3=Float.parseFloat(br.readLine());
+				avg=(ial + ia2 + ia3 ) / 3;
+		}
+			catch (Exception e)
+			{
+				System.out.println("Run Time Error Occured while reading input..."); e.printStackTrace();
+			}
+			}
+		void displayStudentDetails()
+		{
+			System.out.println(rno+"\t"+name+"\t\t"+course+"\t"+ial+"\t"+ia2+"\t"+ia3+"\t"+avg);
+		}
+		}
+	class arrayofStudent {
+		public static void main(String a[]){
+		Student list[]=new Student [5];
+	/* Initialize array of objects individually*/
+		for (int i=0;i<list.length;i++)
+			list[i]=new Student();
+		System.out.println("\n*** **");
+		System.out.println("R.No\tName\t\tCourse\tCIE-I\tCIE-II\tCIE-III\tAvg");
+		System.out.println("\n**");
+		for(int i=0;i<3;i++)
+			list[i].displayStudentDetails();
+		System.out.println("\n**");
+		}
 	}
-	void getStudent()
-	{
-	System.out.println(StudName+"\t" +Rollno+"\t"+clg+"\t"+dept+"\t\t"+percentage);
-	}
-	}
-	class Stud
-	{
-	public static void main(String args[])
-	{
-	System.out.println("Name\tRollnotCollege't Department't Percentage");
-	Student Stud1= new Student();
-	Student Stud2= new Student();
-	Stud1.setStudent("Sindhu", 155,"CS",88);
-	Stud2.setStudent("Madhu", 100, "EC",90);
-	Stud1.getStudent();
-	Stud2.getStudent();
-	}
-}
+
